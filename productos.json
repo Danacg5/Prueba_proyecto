@@ -1,0 +1,35 @@
+{
+  "centro": "IES Aljada",
+  "configuracion": {
+    "moneda": "€",
+    "recreo_inicio": "11:00",
+    "recreo_fin": "11:30"
+  },
+  "categorias": [
+    {
+      "nombre": "Bocadillos",
+      "items": [
+        { "id": 1, "nombre": "Vegetal Completo", "precio": 2.40, "imagen": "IMG_5991.jpg", "flash": true },
+        { "id": 2, "nombre": "Atún con Tomate", "precio": 2.40, "imagen": "IMG_5993.jpg", "flash": false },
+        { "id": 3, "nombre": "Lomo o Salchicha", "precio": 3.00, "imagen": "IMG_5990.jpg", "flash": false },
+        { "id": 4, "nombre": "Tortilla de Patatas", "precio": 2.40, "imagen": "IMG_5998.jpg", "flash": false }
+      ]
+    },
+    {
+      "nombre": "Especialidades",
+      "items": [
+        { "id": 5, "nombre": "Aljada (Tostada Especial)", "precio": 1.50, "imagen": "IMG_5996.jpg", "flash": true },
+        { "id": 6, "nombre": "Napolitana Chocolate", "precio": 1.20, "imagen": "IMG_5992.jpg", "flash": true },
+        { "id": 7, "nombre": "Bizcocho Casero", "precio": 1.00, "imagen": "IMG_5994.jpg", "flash": false }
+      ]
+    },
+    {
+      "nombre": "Bebidas",
+      "items": [
+        { "id": 8, "nombre": "Café con Leche", "precio": 1.50, "imagen": "IMG_6001.jpg", "flash": false },
+        { "id": 9, "nombre": "Zumo Naranja Natural", "precio": 1.50, "imagen": null, "flash": false },
+        { "id": 10, "nombre": "Vaso para llevar", "precio": 0.20, "imagen": "IMG_5995.jpg", "flash": false }
+      ]
+    }
+  ]
+}

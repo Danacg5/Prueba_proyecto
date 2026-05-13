@@ -1,0 +1,89 @@
+:root {
+    --primary: #00ffcc; /* Neón Aljada */
+    --flash: #ff0055;   /* Rosa Oferta */
+    --bg: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background: var(--bg);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Fondo dinámico */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+    z-index: -1;
+}
+
+header {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+h1 span { color: var(--primary); }
+
+#menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+    position: relative;
+}
+
+.card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* ANIMACIÓN FLASH (Fase 2) */
+@keyframes flash-glow {
+    0% { box-shadow: 0 0 5px var(--flash); }
+    50% { box-shadow: 0 0 20px var(--flash); border-color: var(--flash); }
+    100% { box-shadow: 0 0 5px var(--flash); }
+}
+
+.oferta-activa {
+    animation: flash-glow 1.5s infinite;
+    border: 2px solid var(--flash) !important;
+}
+
+.badge-flash {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--flash);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
