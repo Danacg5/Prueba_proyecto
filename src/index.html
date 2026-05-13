@@ -2,27 +2,65 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cantina IES Aljada | Digital Menu</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>CANTINA DIGITAL IES ALJADA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay"></div>
-    <header>
-        <div class="logo-container">
-            <h1>CANTINA <span>ALJADA</span></h1>
-            <div id="reloj">00:00:00</div>
+
+<div class="container">
+    <div class="menu-side">
+        <div class="header-brand animate__animated animate__fadeInDown">
+            <img src="logo_aljada.jpg" alt="Logo IES Aljada">
+            <h1>CANTINA</h1>
         </div>
-        <div id="status-bar" class="status-cerrado">Cargando estado...</div>
-    </header>
 
-    <main id="menu-grid">
-        </main>
+        <div class="category-box active" id="box-bocatas">
+            <h2 class="category-title">🥖 BOCADILLOS</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><span class="item-info">Tortilla de Patatas</span><span class="item-price">2,40€</span></div>
+                <div class="menu-item"><span class="item-info">Atún con Mayonesa</span><span class="item-price">2,40€</span></div>
+                <div class="menu-item"><span class="item-info">Lomo / Salchicha</span><span class="item-price">3,00€</span></div>
+                <div class="menu-item"><span class="item-info">Especial Aljada</span><span class="item-price">1,50€</span></div>
+            </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 Proyecto LM - IES Aljada</p>
-    </footer>
+        <div class="category-box" id="box-bebidas">
+            <h2 class="category-title">🥤 REFRESCOS</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><span class="item-info">Coca-Cola / Fanta</span><span class="item-price">1,00€</span></div>
+                <div class="menu-item"><span class="item-info">Zumo Naranja Natural</span><span class="item-price">1,50€</span></div>
+                <div class="menu-item"><span class="item-info">Agua Mineral</span><span class="item-price">0,50€</span></div>
+                <div class="menu-item"><span class="item-info">Café con Leche</span><span class="item-price">1,50€</span></div>
+            </div>
+        </div>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div class="promo-side">
+        <div class="promo-content active">
+            <img src="tortilla.jpg" class="promo-image">
+            <div class="promo-text">
+                <div class="promo-tag">OFERTA DEL DÍA</div>
+                <h3 class="promo-title">PINCHO DE TORTILLA</h3>
+                <div class="promo-big-price">1,20€</div>
+            </div>
+        </div>
+
+        <div class="promo-content">
+            <img src="pizza.jpg" class="promo-image">
+            <div class="promo-text">
+                <div class="promo-tag">RECIÉN HECHO</div>
+                <h3 class="promo-title">PAN PIZZA XL</h3>
+                <div class="promo-big-price">1,80€</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <marquee scrollamount="10">IES ALJADA: CALIDAD Y SABOR EN CADA RECREO • RECUERDA: VASO PARA LLEVAR +0,20€ • ¡BUEN PROVECHO!</marquee>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
