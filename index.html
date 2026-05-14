@@ -8,90 +8,77 @@
 </head>
 <body>
 
-<div class="dashboard">
-    <header class="main-header">
-        <div class="logo-section">
-            <span class="ies-text">IES ALJADA</span>
-            <span class="cantina-text">CANTINA</span>
+<div class="container">
+    <div class="menu-side">
+        <div class="header-brand animate__animated animate__fadeInDown">
+            <img src="Logo IES Aljada.jpg" alt="Logo IES Aljada">
+            <h1>CANTINA</h1>
         </div>
-        <div class="clock-section" id="liveClock">00:00:00</div>
-    </header>
 
-    <div class="main-container">
-        <section class="menu-panel">
-            <div class="category-box active">
-                <h2 class="category-title">REFRESCOS Y CAFÉ</h2>
-                <div class="menu-list">
-                    <div class="menu-item"><span>Café con Leche</span> <span class="price">1,50€</span></div>
-                    <div class="menu-item"><span>Zumo de Naranja Natural</span> <span class="price">1,50€</span></div>
-                    <div class="menu-item"><span>Refrescos (Lata)</span> <span class="price">1,00€</span></div>
-                    <div class="menu-item"><span>Agua Mineral</span> <span class="price">0,50€</span></div>
-                </div>
+        <div class="category-box active" id="box-bocatas">
+            <h2 class="category-title">BOCADILLOS</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><span class="item-info">Tortilla de Patatas</span><span class="item-price">2,40€</span></div>
+                <div class="menu-item"><span class="item-info">Atún con Mayonesa</span><span class="item-price">2,40€</span></div>
+                <div class="menu-item"><span class="item-info">Lomo / Salchicha</span><span class="item-price">3,00€</span></div>
+                <div class="menu-item"><span class="item-info">Especial Aljada</span><span class="item-price">1,50€</span></div>
             </div>
+        </div>
 
-            <div class="category-box">
-                <h2 class="category-title">BOCADILLOS</h2>
-                <div class="menu-list">
-                    <div class="menu-item"><span>Tortilla de Patatas</span> <span class="price">2,40€</span></div>
-                    <div class="menu-item"><span>Atún con Mayonesa</span> <span class="price">2,40€</span></div>
-                    <div class="menu-item"><span>Lomo / Salchicha</span> <span class="price">3,00€</span></div>
-                    <div class="menu-item"><span>Especial Aljada</span> <span class="price">1,50€</span></div>
-                </div>
+        <div class="category-box" id="box-bebidas">
+            <h2 class="category-title">REFRESCOS Y CAFÉ</h2>
+            <div class="menu-grid">
+                <div class="menu-item"><span class="item-info">Café con Leche</span><span class="item-price">1,50€</span></div>
+                <div class="menu-item"><span class="item-info">Zumo de Naranja Natural</span><span class="item-price">1,50€</span></div>
+                <div class="menu-item"><span class="item-info">Refrescos (Lata)</span><span class="item-price">1,00€</span></div>
+                <div class="menu-item"><span class="item-info">Agua Mineral</span><span class="item-price">0,50€</span></div>
             </div>
-        </section>
-
-        <section class="promo-panel">
-            <div class="promo-card active">
-                <div class="image-container">
-                    <img src="NAPOLITANA DE CHOCO.png" alt="Dulces">
-                </div>
-                <div class="promo-info">
-                    <h3 class="promo-header">DESAYUNO DULCE</h3>
-                    <p class="promo-desc">Napolitanas con azúcar</p>
-                    <div class="promo-price-tag">1,20€</div>
-                </div>
-            </div>
-
-            <div class="promo-card">
-                <div class="image-container">
-                    <img src="PINCHO DE TORTILLA.png" alt="Tortilla">
-                </div>
-                <div class="promo-info">
-                    <h3 class="promo-header">TORTILLA CASERA</h3>
-                    <p class="promo-desc">¡El pincho estrella!</p>
-                    <div class="promo-price-tag">1,20€</div>
-                </div>
-            </div>
-
-            <div class="promo-card">
-                <div class="image-container">
-                    <img src="PAN PIZZA.jpg" alt="Pizza">
-                </div>
-                <div class="promo-info">
-                    <h3 class="promo-header">PAN PIZZA XL</h3>
-                    <p class="promo-desc">Recién horneado</p>
-                    <div class="promo-price-tag">1,80€</div>
-                </div>
-            </div>
-
-            <div class="promo-card">
-                <div class="image-container">
-                    <img src="TORTILLA DE PATATAS.png" alt="Tortilla Entera">
-                </div>
-                <div class="promo-info">
-                    <h3 class="promo-header">TORTILLA FAMILIAR</h3>
-                    <p class="promo-desc">Encárgala para llevar</p>
-                    <div class="promo-price-tag">8,00€</div>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
-    <footer class="footer-marquee">
-        <div class="marquee-content">
-            ⚠️ AVISO: El suplemento por vaso para llevar es de 0,20€. ¡Disfruta de tu descanso en el IES Aljada! ⚠️
+    <div class="promo-side">
+        
+        <div class="promo-content active">
+            <img src="PINCHO DE TORTILLA.png" class="promo-image" alt="Pincho de Tortilla">
+            <div class="promo-text">
+                <div class="promo-tag">OFERTA DEL DÍA</div>
+                <h3 class="promo-title">PINCHO DE TORTILLA</h3>
+                <div class="promo-big-price">1,20€</div>
+            </div>
         </div>
-    </footer>
+
+        <div class="promo-content">
+            <img src="PAN PIZZA.jpg" class="promo-image" alt="Pan Pizza">
+            <div class="promo-text">
+                <div class="promo-tag">RECIÉN HORNEADO</div>
+                <h3 class="promo-title">PAN PIZZA XL</h3>
+                <div class="promo-big-price">1,80€</div>
+            </div>
+        </div>
+
+        <div class="promo-content">
+            <img src="NAPOLITANA DE CHOCO.png" class="promo-image" alt="Napolitana de Chocolate">
+            <div class="promo-text">
+                <div class="promo-tag">MOMENTO DULCE</div>
+                <h3 class="promo-title">NAPOLITANA CHOCO</h3>
+                <div class="promo-big-price">1,20€</div>
+            </div>
+        </div>
+
+        <div class="promo-content">
+            <img src="TORTILLA DE PATATAS.png" class="promo-image" alt="Tortilla de Patatas">
+            <div class="promo-text">
+                <div class="promo-tag">100% CASERA</div>
+                <h3 class="promo-title">TORTILLA ENTERA</h3>
+                <div class="promo-big-price">8,00€</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <marquee scrollamount="10">⚠️ AVISO: El suplemento por vaso para llevar es de 0,20€. ¡Disfruta de tu descanso en el IES Aljada! ⚠️</marquee>
 </div>
 
 <script src="src/main.js"></script>
