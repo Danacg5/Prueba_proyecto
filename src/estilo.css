@@ -15,64 +15,75 @@ body {
     overflow: hidden;
 }
 
-.dashboard {
+/* El esqueleto principal en forma de Grid */
+.container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    grid-template-rows: 80px 1fr 60px;
+    grid-template-columns: 1.2fr 0.8fr; /* Izquierda más grande, derecha más pequeña */
+    grid-template-rows: 1fr 60px; /* El contenido arriba, y el footer de 60px abajo */
     gap: 20px;
     height: 100vh;
     padding: 20px;
     box-sizing: border-box;
 }
 
-header {
-    grid-column: span 2;
-    background: var(--light-glass);
-    color: #222;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.logo-area { font-weight: 900; font-size: 1.8rem; letter-spacing: -1px; }
-.clock { font-size: 1.5rem; font-weight: bold; color: var(--aljada-green); }
-
-.menu-panel {
+/* --- PANEL IZQUIERDO (MENÚS) --- */
+.menu-side {
     background: var(--light-glass);
     border-radius: 20px;
     padding: 30px;
     color: #333;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
 }
 
-.menu-category { display: none; height: 100%; }
-.menu-category.active { display: block; animation: fadeInRight 0.5s; }
-
-.category-title {
-    font-size: 2.5rem;
-    color: var(--aljada-green);
-    border-bottom: 4px solid var(--aljada-green);
-    margin-bottom: 20px;
+.header-brand {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 4px solid var(--aljada-green);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header-brand img {
+    height: 60px;
+    border-radius: 10px;
+}
+
+.header-brand h1 {
+    margin: 0;
+    color: var(--aljada-green);
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+
+.category-box { display: none; flex-grow: 1; }
+.category-box.active { display: block; animation: fadeInRight 0.5s; }
+
+.category-title {
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .menu-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
     font-size: 1.4rem;
     font-weight: 600;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
-.price-tag {
+.item-price {
     background: #222;
     color: white;
     padding: 5px 15px;
@@ -80,15 +91,16 @@ header {
     font-family: monospace;
 }
 
-.promo-panel {
+/* --- PANEL DERECHO (FOTOS GRANDES) --- */
+.promo-side {
     background: var(--dark-glass);
     border-radius: 20px;
+    border: 3px solid var(--aljada-green);
     overflow: hidden;
     position: relative;
-    border: 3px solid var(--aljada-green);
 }
 
-.promo-slide {
+.promo-content {
     display: none;
     height: 100%;
     flex-direction: column;
@@ -98,31 +110,62 @@ header {
     padding: 20px;
 }
 
-.promo-slide.active { display: flex; animation: zoomIn 0.6s; }
+.promo-content.active {
+    display: flex;
+    animation: zoomIn 0.6s;
+}
 
-.promo-img {
+/* Esto es lo que arregla que las fotos se vean gigantes */
+.promo-image {
     width: 90%;
-    height: 50%;
-    object-fit: cover;
+    height: 50%; /* Obliga a la foto a no ocupar más de la mitad de la caja */
+    object-fit: cover; /* Recorta la foto bonito si no cuadra la proporción */
     border-radius: 15px;
     margin-bottom: 20px;
     border: 4px solid white;
 }
 
-.promo-title { font-size: 2.5rem; color: var(--aljada-green); margin: 10px 0; }
-.promo-price { font-size: 4.5rem; font-weight: 900; color: white; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.promo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-footer {
-    grid-column: span 2;
+.promo-tag {
+    background: var(--accent);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.promo-title {
+    font-size: 2.5rem;
+    color: var(--aljada-green);
+    margin: 0 0 10px 0;
+}
+
+.promo-big-price {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* --- FOOTER (AVISO INFERIOR) --- */
+.footer {
+    grid-column: span 2; /* Esto hace que ocupe todo el ancho inferior */
     background: rgba(0,0,0,0.5);
     border-radius: 10px;
     display: flex;
     align-items: center;
     padding: 0 20px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
-.marquee { overflow: hidden; white-space: nowrap; width: 100%; }
-.marquee span { display: inline-block; padding-left: 100%; animation: marquee 20s linear infinite; }
-
-@keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+marquee {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
