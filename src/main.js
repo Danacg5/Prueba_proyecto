@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Reloj en tiempo real
+    // 1. Reloj en tiempo real (Si añades el reloj al HTML más adelante, esto ya lo gestiona)
     const updateClock = () => {
         const now = new Date();
         const clockElement = document.getElementById('liveClock');
@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     setInterval(updateClock, 1000);
-    updateClock(); // Llamada inicial
+    updateClock();
 
     // 2. Rotación del Menú (Izquierda) - Cada 10 segundos
-    const categories = document.querySelectorAll('.menu-category');
+    const categories = document.querySelectorAll('.category-box');
     let currentCat = 0;
     if (categories.length > 0) {
         setInterval(() => {
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 10000);
     }
 
-    // 3. Rotación de Ofertas (Derecha) - Cada 5 segundos
-    const promos = document.querySelectorAll('.promo-slide');
+    // 3. Rotación de Ofertas (Derecha) - Cada 5 segundos con las 4 fotos
+    const promos = document.querySelectorAll('.promo-content');
     let currentPromo = 0;
     if (promos.length > 0) {
         setInterval(() => {
