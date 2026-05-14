@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Reloj en tiempo real (Si añades el reloj al HTML más adelante, esto ya lo gestiona)
+    // 1. Reloj
     const updateClock = () => {
         const now = new Date();
         const clockElement = document.getElementById('liveClock');
         if (clockElement) {
-            clockElement.innerText = now.toLocaleTimeString();
+            clockElement.innerText = now.toLocaleTimeString('es-ES', { hour12: false });
         }
     };
     setInterval(updateClock, 1000);
     updateClock();
 
-    // 2. Rotación del Menú (Izquierda) - Cada 10 segundos
-    const categories = document.querySelectorAll('.category-box');
+    // 2. Rotación Menú
+    const categories = document.querySelectorAll('.category');
     let currentCat = 0;
-    if (categories.length > 0) {
+    if(categories.length > 0) {
         setInterval(() => {
             categories[currentCat].classList.remove('active');
             currentCat = (currentCat + 1) % categories.length;
@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 10000);
     }
 
-    // 3. Rotación de Ofertas (Derecha) - Cada 5 segundos con las 4 fotos
-    const promos = document.querySelectorAll('.promo-content');
+    // 3. Rotación Promos
+    const promos = document.querySelectorAll('.promo');
     let currentPromo = 0;
-    if (promos.length > 0) {
+    if(promos.length > 0) {
         setInterval(() => {
             promos[currentPromo].classList.remove('active');
             currentPromo = (currentPromo + 1) % promos.length;
             promos[currentPromo].classList.add('active');
-        }, 5000);
+        }, 6000);
     }
 });
