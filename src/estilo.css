@@ -1,171 +1,108 @@
 :root {
     --aljada-green: #8db600;
-    --dark-glass: rgba(0, 0, 0, 0.75);
-    --light-glass: rgba(255, 255, 255, 0.9);
-    --accent: #ff9f43;
+    --aljada-yellow: #d4e157;
+    --dark-bg: #1a1a1a;
+    --glass: rgba(255, 255, 255, 0.1);
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #1e272e 0%, #485e00 100%);
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #2e3b00 0%, #121212 100%);
     color: white;
     height: 100vh;
     overflow: hidden;
 }
 
-/* El esqueleto principal en forma de Grid */
-.container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Izquierda más grande, derecha más pequeña */
-    grid-template-rows: 1fr 60px; /* El contenido arriba, y el footer de 60px abajo */
-    gap: 20px;
+.dashboard {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* --- PANEL IZQUIERDO (MENÚS) --- */
-.menu-side {
-    background: var(--light-glass);
-    border-radius: 20px;
-    padding: 30px;
-    color: #333;
+/* HEADER */
+.main-header {
     display: flex;
-    flex-direction: column;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
-}
-
-.header-brand {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    border-bottom: 4px solid var(--aljada-green);
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--aljada-green);
     margin-bottom: 20px;
 }
 
-.header-brand img {
-    height: 60px;
-    border-radius: 10px;
+.logo-section { font-size: 2rem; font-weight: bold; }
+.ies-text { color: white; }
+.cantina-text { color: var(--aljada-green); margin-left: 10px; }
+.clock-section { font-size: 2rem; color: var(--aljada-yellow); font-family: monospace; }
+
+/* CONTENEDOR PRINCIPAL */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    flex-grow: 1;
 }
 
-.header-brand h1 {
-    margin: 0;
-    color: var(--aljada-green);
-    font-size: 2.8rem;
-    font-weight: 900;
+/* PANELES */
+.menu-panel, .promo-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--aljada-green);
+    border-radius: 25px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
 }
 
-.category-box { display: none; flex-grow: 1; }
-.category-box.active { display: block; animation: fadeInRight 0.5s; }
+.category-box, .promo-card { display: none; height: 100%; }
+.active { display: flex; flex-direction: column; animation: fadeIn 0.8s; }
 
-.category-title {
-    font-size: 2.2rem;
-    color: #222;
-    margin-bottom: 20px;
-}
-
-.menu-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+.category-title { color: var(--aljada-yellow); font-size: 2.5rem; margin-top: 0; border-bottom: 1px solid var(--glass); padding-bottom: 10px; }
 
 .menu-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    font-size: 1.8rem;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--glass);
 }
 
-.item-price {
-    background: #222;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 8px;
-    font-family: monospace;
-}
+.price { color: var(--aljada-yellow); font-weight: bold; }
 
-/* --- PANEL DERECHO (FOTOS GRANDES) --- */
-.promo-side {
-    background: var(--dark-glass);
-    border-radius: 20px;
-    border: 3px solid var(--aljada-green);
+/* PROMO CARD */
+.image-container { height: 60%; width: 100%; }
+.image-container img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; border: 3px solid white; }
+
+.promo-info { text-align: center; margin-top: 20px; }
+.promo-header { color: var(--aljada-yellow); font-size: 2.5rem; margin: 0; }
+.promo-desc { font-size: 1.2rem; color: #ccc; }
+.promo-price-tag { font-size: 4rem; font-weight: 900; color: white; }
+
+/* FOOTER MARQUEE */
+.footer-marquee {
+    background: #ff8f00; /* Naranja como en la foto */
+    color: black;
+    font-weight: bold;
+    padding: 15px 0;
+    margin-top: 20px;
+    border-radius: 10px;
     overflow: hidden;
+    white-space: nowrap;
     position: relative;
 }
 
-.promo-content {
-    display: none;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 25s linear infinite;
+    font-size: 1.4rem;
 }
 
-.promo-content.active {
-    display: flex;
-    animation: zoomIn 0.6s;
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
-/* Esto es lo que arregla que las fotos se vean gigantes */
-.promo-image {
-    width: 90%;
-    height: 50%; /* Obliga a la foto a no ocupar más de la mitad de la caja */
-    object-fit: cover; /* Recorta la foto bonito si no cuadra la proporción */
-    border-radius: 15px;
-    margin-bottom: 20px;
-    border: 4px solid white;
-}
-
-.promo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.promo-tag {
-    background: var(--accent);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.promo-title {
-    font-size: 2.5rem;
-    color: var(--aljada-green);
-    margin: 0 0 10px 0;
-}
-
-.promo-big-price {
-    font-size: 4.5rem;
-    font-weight: 900;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-/* --- FOOTER (AVISO INFERIOR) --- */
-.footer {
-    grid-column: span 2; /* Esto hace que ocupe todo el ancho inferior */
-    background: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 1.5rem;
-}
-
-marquee {
-    width: 100%;
-    color: white;
-    font-weight: bold;
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
